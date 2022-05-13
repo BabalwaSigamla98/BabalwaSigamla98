@@ -1,0 +1,25 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidebar mode="over" opened>
+       <app-sidebar></app-sidebar>
+
+    </mat-sidenav>
+    <mat-sidenav-content class="menuItem">
+        <div class="content">
+            <div class="toolnbr">
+               <mat-toolbar>
+                <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+                <div class="icon">
+                    <button mat-button class="btn btn-primary" >
+                        <mat-icon [inline]="true"> format_color_fill</mat-icon>
+                    </button>
+                    
+                    
+                </div>
+            </mat-toolbar>
+            </div>
+            <div class="main">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
