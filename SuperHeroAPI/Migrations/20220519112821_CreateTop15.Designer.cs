@@ -11,8 +11,8 @@ using SuperHeroAPI.Data;
 namespace SuperHeroAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220511185902_Top15")]
-    partial class Top15
+    [Migration("20220519112821_CreateTop15")]
+    partial class CreateTop15
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

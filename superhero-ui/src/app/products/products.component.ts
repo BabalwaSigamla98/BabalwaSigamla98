@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../product.service';
+import { CartService } from '../cart.service';
+import { ProductService } from '../product.service'
 
 
 @Component({
@@ -14,7 +15,11 @@ import { ProductService } from '../product.service';
   export class ProductsComponent {
     products: any[] = [];
 
-    constructor(private productservice: ProductService, private  route : ActivatedRoute){}
+    constructor(
+      private productservice: ProductService, 
+      private route : ActivatedRoute,
+      private cartService : CartService
+    ){}
 
     ngOnInit(): void {
       this.productservice.getProducts().subscribe((products: any )=>{
@@ -23,12 +28,14 @@ import { ProductService } from '../product.service';
       })
 
     }
+    
     addToCart(product: any) {
-      this.productservice.addToCart(product);
+      this.cartService.addToCart(product);
       window.alert('Your product has been added to the cart!');
     }
       
-      
+    
+    
     // pname = 'Chivas '
     // price = 'R250.00'
     // dis='Discription'

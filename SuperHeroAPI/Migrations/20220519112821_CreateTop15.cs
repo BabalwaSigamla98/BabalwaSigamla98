@@ -4,10 +4,26 @@
 
 namespace SuperHeroAPI.Migrations
 {
-    public partial class reverside : Migration
+    public partial class CreateTop15 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "CartTable",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    Images = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CartTable", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "PayAndDeliveriesTable",
                 columns: table => new
@@ -43,6 +59,22 @@ namespace SuperHeroAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SuperHeroes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Place = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SuperHeroes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserTable",
                 columns: table => new
                 {
@@ -62,10 +94,16 @@ namespace SuperHeroAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "CartTable");
+
+            migrationBuilder.DropTable(
                 name: "PayAndDeliveriesTable");
 
             migrationBuilder.DropTable(
                 name: "ProductsTable");
+
+            migrationBuilder.DropTable(
+                name: "SuperHeroes");
 
             migrationBuilder.DropTable(
                 name: "UserTable");

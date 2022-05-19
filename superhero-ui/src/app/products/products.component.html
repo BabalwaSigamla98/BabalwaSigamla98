@@ -14,20 +14,18 @@
   </div>
 </div> -->
 
-
-
 <div class="container" *ngFor="let product of products, let i = index">
   <mat-card class="example-card">
     <mat-card-title-group>
-      
-      
+
+
       <img mat-card-image
-    
+
        [src]="product?.image" alt="">
     </mat-card-title-group>
-    
+
     <h2>{{product?.productname}}</h2>
-    <h3>R :{{product?.price}}</h3>
+    <h3>{{product?.price | currency: 'R '}}</h3>
     <br>
     <mat-card-content>
  <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>

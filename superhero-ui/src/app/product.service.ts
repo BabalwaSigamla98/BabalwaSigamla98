@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
     providedIn : 'root'
 })
 export class ProductService {
-  // Local variable which stores 
-  
+  // Local variable which stores
+
   public cartItems = [];
   public products: any[] = [];
   public Tamount = new Subject<number>();
@@ -24,6 +24,7 @@ export class ProductService {
   getProducts(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Product`);
   }
+
   addToCart(product: any) {
     this.products.push(product);
   }

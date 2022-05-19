@@ -12,20 +12,19 @@ import { SignupComponent } from './signup/signup.component';
 
 
 const routes: Routes = [
-  {
-    path: '', component: NavbarComponent},
-     { path: 'products', component: ProductsComponent },
-    { path: 'orders', component: OrdersComponent },
-    { path: 'carts', component: CartsComponent },
-    {path:'aboutus',component:AboutUsComponent},
-    {path:'payment',component:PaymentComponent},
-    {path:'login',component:LoginComponent},
-    {path:'signup',component:SignupComponent},
-    {path:'navbar',component:NavbarComponent}
-   
-     
-  
-    
+  { path: '', component: NavbarComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'cart', component: CartsComponent },
+  { path: 'aboutus', component: AboutUsComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'navbar', component: NavbarComponent }
+
+
+
+
 ];
 
 @NgModule({
