@@ -10,25 +10,26 @@ import { PaymentComponent } from './payment/payment.component';
 import { ProductsComponent } from './products/products.component';
 import { SignupComponent } from './signup/signup.component';
 
-
 const routes: Routes = [
-  { path: '', component: NavbarComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'cart', component: CartsComponent },
-  { path: 'aboutus', component: AboutUsComponent },
-  { path: 'payment', component: PaymentComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'login'},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'navbar', component: NavbarComponent }
-
-
-
-
+  { path: 'navbar', component: NavbarComponent },
+  {
+    path: 'home',
+    component: NavbarComponent,
+    children: [
+      { path: 'products', component: ProductsComponent },
+      { path: 'orders', component: OrdersComponent },
+      { path: 'cart', component: CartsComponent },
+      { path: 'aboutus', component: AboutUsComponent },
+      { path: 'payment', component: PaymentComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

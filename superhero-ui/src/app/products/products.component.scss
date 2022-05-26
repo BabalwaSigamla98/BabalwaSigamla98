@@ -10,16 +10,22 @@
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: .25rem;
 }
-.item img{
+.product img{
     width: 64px;
 
 }
-.item{
+h5{
+    white-space: nowrap;
+    overflow:hidden; 
+    text-overflow:ellipsis;
+    max-width:100ch;
+}
+.product{
     margin: 0px 15px;
     text-align: center;
 
 }
-.item :hover{
+.product :hover{
     color:blue;
 }
 .card{
@@ -38,6 +44,18 @@
 }
 .container {
     background: rgb(216, 121, 121);
+}
+.card{
+    width: 250px;
+    padding: 20px;
+    margin: 50px;
+}
+.card img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+
 }
 
 

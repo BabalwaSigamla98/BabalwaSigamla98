@@ -1,34 +1,40 @@
 
 
-<!-- <h2>My products</h2>
-<div class="container">
-  <div class="row">
-    <div  class="col-sm-12 col-md-2" *ngFor="let product of products, let i = index">
-      <img [src]="product?.image" alt="">
-      <h3>{{product?.productname}}</h3>
-      <h3>R :{{product?.price}}</h3>
-      <button class="bt
-      bjkbjkkbbn btn-primary" (click)="addToCart(product)">Add to cart</button>
-      <button class="btn btn-primary" routerLink="'/navbar'"></button>
+
+
+  <div class="container" >
+    <div class="row">
+      <ng-container *ngFor="let product of products | filter:searchKey: 'productname'">
+        <div class="card col-md-3">
+          <img [src]="product?.image" alt="">
+          <h5 >{{product?.productname}}</h5>
+          <p><strong>Price</strong>{{product?.price | currency: 'R '}}</p>
+          <button class="btn btn-primary" (click)=addtoCart(product)>Add to cart</button>
+        </div>
+
+      </ng-container>
+      
     </div>
   </div>
-</div> -->
+  <!-- <div class="container" *ngFor="let product of products, let i = index">
+   
+    <mat-card class="example-card">
+      <mat-card-title-group>
+  
+  
+        <img mat-card-image
+  
+         [src]="product?.image" alt="">
+      </mat-card-title-group>
+  
+      <h2>{{product?.productname}}</h2>
+      <h3>{{product?.price | currency: 'R '}}</h3>
+      <br>
+      <mat-card-content>
+   <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
+      </mat-card-content>
+    </mat-card>
+  </div> -->
+  
 
-<div class="container" *ngFor="let product of products, let i = index">
-  <mat-card class="example-card">
-    <mat-card-title-group>
 
-
-      <img mat-card-image
-
-       [src]="product?.image" alt="">
-    </mat-card-title-group>
-
-    <h2>{{product?.productname}}</h2>
-    <h3>{{product?.price | currency: 'R '}}</h3>
-    <br>
-    <mat-card-content>
- <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
-    </mat-card-content>
-  </mat-card>
-</div>

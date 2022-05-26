@@ -48,6 +48,8 @@ namespace SuperHeroAPI.Controllers
             dbUser.Surname = request.Surname;
             dbUser.Username = request.Username;
             dbUser.Password = request.Password;
+            dbUser.CPassword = request.CPassword;
+            dbUser.IdNumber = request.IdNumber;
 
             await _context.SaveChangesAsync();
 

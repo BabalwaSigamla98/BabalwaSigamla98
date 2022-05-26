@@ -8,6 +8,7 @@ namespace SuperHeroAPI.Data
 
         public DbSet<SuperHero> SuperHeroes { get; set; }
         public DbSet<Cart> CartTable { get; set; }
+        public DbSet<Login> Logins { get; set; }
         public DbSet<Product> ProductsTable { get; set; }
         public DbSet<User> UserTable { get; set; }
         public DbSet<PayAndDelivery> PayAndDeliveriesTable { get; set; }

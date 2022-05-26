@@ -15,7 +15,28 @@ background-image: url('https://th.bing.com/th/id/R.1c5aec65eecf98912be5f3225b923
     font-size: 50px;
     color: rgb(6, 70, 70);
 }
+.form-control{
+    border-radius: 3px;
+    width: 350px;
+    margin-left: 20px;
+}
+.seach-icon{
+    position: absolute;
+    z-index: 20;
+    right: 52%;
+    top: 40%;
+    color: rgb(6, 70, 70);
+}
+.fa-cart-plus{
+    font-size: 30px;
 
+}
+.bg-danger{
+    font-size: 10px;
+}
+.nav{
+    background: rgb(6, 70, 70) ;
+}
 
 // mat-sidenav-content.active .menuItem {
 //     height: 100vh;

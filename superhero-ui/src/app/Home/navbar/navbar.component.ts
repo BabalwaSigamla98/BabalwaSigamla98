@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
+import { CartService } from 'src/app/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +11,10 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class NavbarComponent implements AfterViewInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
+  public totalItem : number = 0;
+  public  searchTerm : string = '';
 
-  constructor(private observer: BreakpointObserver) { }
+  constructor(private observer: BreakpointObserver, private cartservice : CartService) { }
 
   ngAfterViewInit(): void {
     this.observer.observe(["(max-width: 800px)"]).subscribe((res) => {
@@ -28,5 +31,17 @@ export class NavbarComponent implements AfterViewInit {
       }
     })
   }
+  ngOnInit(): void{
+    this.cartservice.getProducts()
+    .subscribe(res=>{
+      this.totalItem = res.length;
+    })
+  }
+   search(event:any){
+     this.searchTerm =(event.target as HTMLInputElement).value;
+     console.log(this.searchTerm);
+     this.cartservice.search.next(this.searchTerm);
+
+   }
 
 }

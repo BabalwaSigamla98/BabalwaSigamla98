@@ -13,14 +13,13 @@ import { MatCardModule } from '@angular/material/card';
 import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { LoginComponent } from './login/login.component';
-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
-
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PaymentComponent } from './payment/payment.component';
 import { CartsComponent } from './carts/carts.component';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,8 @@ import { CartsComponent } from './carts/carts.component';
     LoginComponent,
     SignupComponent,
     AboutUsComponent,
-    PaymentComponent
+    PaymentComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

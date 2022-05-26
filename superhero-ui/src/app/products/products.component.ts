@@ -14,6 +14,7 @@ import { ProductService } from '../product.service'
   
   export class ProductsComponent {
     products: any[] = [];
+    searchKey : string ="";
 
     constructor(
       private productservice: ProductService, 
@@ -25,24 +26,26 @@ import { ProductService } from '../product.service'
       this.productservice.getProducts().subscribe((products: any )=>{
         console.log(products);
         this.products=products;
-      })
+
+        this.products.forEach((a:any)=>{
+          Object.assign(a,{quantity:1,total:a.price});
+
+        });
+      });
+       this.cartService.search.subscribe((val: any)=>{
+         this.searchKey = val ;
+       })
 
     }
     
-    addToCart(product: any) {
-      this.cartService.addToCart(product);
-      window.alert('Your product has been added to the cart!');
+    addtoCart(product: any) {
+      this.cartService.addtoCart(product);
+      
     }
       
     
     
-    // pname = 'Chivas '
-    // price = 'R250.00'
-    // dis='Discription'
-    // item ="1";
-    // get Proname(){
-    //   return this.pname
-    // }
+    
   }
 
 
