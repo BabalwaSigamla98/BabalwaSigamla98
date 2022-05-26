@@ -11,8 +11,8 @@ using SuperHeroAPI.Data;
 namespace SuperHeroAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220519112821_CreateTop15")]
-    partial class CreateTop15
+    [Migration("20220526125249_CreateT")]
+    partial class CreateT
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,6 +48,20 @@ namespace SuperHeroAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CartTable");
+                });
+
+            modelBuilder.Entity("SuperHeroAPI.Login", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("Logins");
                 });
 
             modelBuilder.Entity("SuperHeroAPI.PayAndDelivery", b =>
@@ -149,6 +163,14 @@ namespace SuperHeroAPI.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()

@@ -4,7 +4,7 @@
 
 namespace SuperHeroAPI.Migrations
 {
-    public partial class CreateTop15 : Migration
+    public partial class CreateT : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,6 +22,18 @@ namespace SuperHeroAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CartTable", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Logins",
+                columns: table => new
+                {
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Logins", x => x.Username);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,7 +95,9 @@ namespace SuperHeroAPI.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IdNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,6 +109,9 @@ namespace SuperHeroAPI.Migrations
         {
             migrationBuilder.DropTable(
                 name: "CartTable");
+
+            migrationBuilder.DropTable(
+                name: "Logins");
 
             migrationBuilder.DropTable(
                 name: "PayAndDeliveriesTable");

@@ -11,6 +11,6 @@ namespace SuperHeroAPI
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public string CPassword { get; set; } = string.Empty;
-        public int IdNumber { get; set; }
+        public string IdNumber { get; set; } = string.Empty;
     }
 }
