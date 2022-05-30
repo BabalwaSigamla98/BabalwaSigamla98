@@ -11,8 +11,8 @@
               <th>Price</th>
               <th>Quantity</th>
               <th>Action</th>
-              
-              
+
+
             </tr>
           </thead>
           <tbody>
@@ -22,7 +22,7 @@
               <td><img style="width: 40px;height:40px;" [src]="product?.image" alt=""></td>
               <th>{{product.price}}</th>
               <td>{{product.quantity}}</td>
-              
+
               <td><button (click)="removeItem(product)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
             </tr>
             <tr>
@@ -36,10 +36,10 @@
         </table>
       </div>
     </div>
-  
+
 
   </div>
-  
+
 </ng-container>
 <ng-container *ngIf="products.length ==0">
   <div class="container">

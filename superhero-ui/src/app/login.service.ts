@@ -16,7 +16,7 @@ export class LoginService {
   }
 
   login(loginvalues: any): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/api/Login`, loginvalues);
+    return this.http.post(`${environment.apiUrl}/api/Login`, loginvalues);
 
   }
 }

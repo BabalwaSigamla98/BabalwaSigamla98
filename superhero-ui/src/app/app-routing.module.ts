@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'navbar', component: NavbarComponent },
   {
-    path: 'home',
+    path: '',
     component: NavbarComponent,
     children: [
       { path: 'products', component: ProductsComponent },

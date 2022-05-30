@@ -13,8 +13,9 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToLogin() {
-    this.route.navigateByUrl('/login');
-  }
+  // goToLogin() {
+  //   this.route.navigateByUrl('/login');
+  // }
+  
 
 }
