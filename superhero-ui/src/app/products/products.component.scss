@@ -31,19 +31,21 @@ h5{
 .card{
     padding: 20px;
     margin: 50px;
+    background: rgb(121, 210, 216);
 }
 .cart img{
     width: 200px;
     height: 200px;
     margin-bottom: 15px;
     transition:0,3s ease-in-out ;
+    background: rgb(121, 210, 216);
 }
 .cart img:hover{
     transition: 0.3s ease-in-out;
     transform: scale(1.1);
 }
 .container {
-    background: rgb(216, 121, 121);
+    background: rgb(121, 210, 216);
 }
 .card{
     width: 250px;

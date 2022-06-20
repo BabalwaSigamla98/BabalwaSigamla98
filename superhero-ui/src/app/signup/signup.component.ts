@@ -1,7 +1,9 @@
 import { _isNumberValue } from '@angular/cdk/coercion';
+import { HttpClient } from '@angular/common/http';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { first } from 'rxjs/operators';
 import { SignupService } from '../signup.service';
 @Component({
@@ -20,7 +22,9 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private signupservice: SignupService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private http :HttpClient,
+    private Router: Router
   ) {}
 
   // create a new form
@@ -47,8 +51,16 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.http.post<any>("https://localhost:7276/api/User",this.signupForm.value)
+    .subscribe(res=>{
+      alert("Registered");
+      this.signupForm.reset();
+      // this.Router.navigate(['login']);
+    })
 
     if (this.signupForm.invalid) {
+      
+        alert("something went wrong!!");
       return;
     }
 
@@ -60,7 +72,10 @@ export class SignupComponent implements OnInit {
         this.error = error;
         this.loading = false;
       };
+      
     });
+
+  
 
     // function valid() {
     //   throw new Error('Function not implemented.');
@@ -70,6 +85,7 @@ export class SignupComponent implements OnInit {
     //   throw new Error('Function not implemented.');
     // }
   }
+ 
 
   validIdNumber(idNumber: string) {
     if (idNumber.length == 13 && _isNumberValue(idNumber)) {

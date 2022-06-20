@@ -32,4 +32,9 @@ export class CartsComponent implements OnInit {
   emptycart(){
      this.cartservice.removeAllCart();
   }
+
+  bona(){
+    alert("Congratulations your order have been successfully made");
+    this.cartservice.removeAllCart();
+  }
 }

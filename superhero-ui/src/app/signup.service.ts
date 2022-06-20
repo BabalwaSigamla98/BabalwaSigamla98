@@ -20,6 +20,7 @@ export class SignupService {
 
   signup(user: User): Observable<any> {
     return this.http.post(`${environment.apiUrl}/api/User`, user);
+    
 
   }
 }

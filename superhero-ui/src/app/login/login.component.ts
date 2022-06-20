@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication.service'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService
+        private authenticationService: AuthenticationService,
+        private http : HttpClient
     )
     {
         //redirect to home if already logged in
@@ -50,19 +52,32 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
-
+        this.http.get<any>("https://localhost:7276/api/User")
+        .subscribe(res=>{
+            const user = res.find((a:any)=>{
+                return a.Username === this.loginForm.value.Username && a.Password === this.loginForm.value.Password
+              
+            });
+            if(user){
+                alert("Login succefully");
+                this.loginForm.reset();
+                this.router.navigate(['navbar'])
+            }
+        })
         // reset alerts on submit
         this.error = "";
         this.success = "";
 
         // stop here if form is invalid
         if (this.loginForm.invalid) {
-            return;
+           
+            return alert("Fields cannot be empty!");
         }
 
-        this.loading = true;
+        
         this.authenticationService.login(this.loginForm.value)
             .subscribe((token) => {
+               
               console.log(token);
               this.router.navigate(['/navbar']);
               this.loading = false;
