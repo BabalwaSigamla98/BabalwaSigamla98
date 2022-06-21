@@ -51,12 +51,12 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.http.post<any>("https://localhost:7276/api/User",this.signupForm.value)
-    .subscribe(res=>{
-      alert("Registered");
-      this.signupForm.reset();
-      // this.Router.navigate(['login']);
-    })
+    // this.http.post<any>("https://localhost:7276/api/User",this.signupForm.value)
+    // .subscribe(res=>{
+      
+    //   this.signupForm.reset();
+    //   // this.Router.navigate(['login']);
+    // })
 
     if (this.signupForm.invalid) {
       
@@ -67,6 +67,9 @@ export class SignupComponent implements OnInit {
     this.loading = true;
     this.signupservice.signup(this.signupForm.value).subscribe((token) => {
       console.log(token);
+      alert("Registered");
+      this.signupForm.reset();
+      this.Router.navigate(['login']);
       this.router.navigate(['/login'], { queryParams: { register: true } });
       (error: string) => {
         this.error = error;
