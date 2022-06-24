@@ -40,6 +40,7 @@ import { ProductService } from '../product.service'
     
     addtoCart(product: any) {
       this.cartService.addtoCart(product);
+      alert("Added Successfully");
       
     }
       

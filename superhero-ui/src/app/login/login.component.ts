@@ -58,11 +58,6 @@ export class LoginComponent implements OnInit {
                 return a.Username === this.loginForm.value.Username && a.Password === this.loginForm.value.Password
               
             });
-            if(user){
-                alert("Login succefully");
-                this.loginForm.reset();
-                this.router.navigate(['navbar'])
-            }
         })
         // reset alerts on submit
         this.error = "";
@@ -81,6 +76,7 @@ export class LoginComponent implements OnInit {
               console.log(token);
               this.router.navigate(['/navbar']);
               this.loading = false;
+              alert("Login Successfully");
             });
 }
 }
