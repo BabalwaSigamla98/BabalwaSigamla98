@@ -8,7 +8,7 @@
         <div class="card col-md-3">
           <img [src]="product?.image" alt="">
           <h5 >{{product?.productname}}</h5>
-          <p><strong>Price : </strong>{{product?.price | currency: 'R '}}</p>
+          <p><strong>Price : {{product?.price | currency: 'R '}}</strong></p>
           <button class="btn btn-primary" (click)=addtoCart(product)>Add to cart</button>
         </div>
 
