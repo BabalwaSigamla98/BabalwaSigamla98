@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
+  cartservice: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
   
-
+  bona(){
+    alert("Congratulations your order have been successfully made");
+    this.cartservice.removeAllCart();
+  }
 }
