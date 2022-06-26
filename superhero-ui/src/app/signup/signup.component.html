@@ -17,6 +17,7 @@
               <div *ngIf="g['Name'].hasError('required')">First name is required </div>
             </div>
           </div>
+          <br>
           <div class="form-group">
             <label for="Surname" class="form-label">Last Name</label>
             <input formControlName="Surname" type="text" class="form-control"
@@ -26,6 +27,7 @@
               <div *ngIf="g['Surname'].hasError('required')">Last name is required </div>
             </div>
           </div>
+          <br>
           <div class="form-group">
             <label for="Username" class="form-label">Username</label>
             <input formControlName="Username" type="text" class="form-control"
@@ -35,6 +37,7 @@
               <div *ngIf="g['Username'].hasError('required')">Username is required </div>
             </div>
           </div>
+          <br>
           <div class="form-group">
             <label for="Password" class="form-label">Password</label>
             <input formControlName="Password" type="password" class="form-control"
@@ -45,6 +48,7 @@
               <div *ngIf="g['Password'].hasError('minLength')">Password is required 6 character</div>
             </div>
           </div>
+          <br>
           <div class="form-group">
             <label for="CPassword" class="form-label">Confirm Password</label>
             <input formControlName="CPassword" type="password" class="form-control"
@@ -54,6 +58,7 @@
               <div *ngIf="g['CPassword'].hasError('required')"> Confirm Password is required </div>
             </div>
           </div>
+          <br>
          
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">ID Number</label>
@@ -68,7 +73,7 @@
           </div>
 
           <button type="submit" class="btn btn-primary" >Sign Up</button>
-          <a routerLink="/login">Already registered? Click to signIn</a>
+          <a routerLink="/login">Already registered?</a>
         </form>
       </div>
     </div>
